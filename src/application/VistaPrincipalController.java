@@ -65,6 +65,8 @@ public class VistaPrincipalController {
 		}
 	}
 	
+	
+	
 	public void mostrarControl(String id) {
 		borderPane.lookup(id).setVisible(true);
 	}

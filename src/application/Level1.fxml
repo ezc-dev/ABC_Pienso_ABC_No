@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
+<AnchorPane maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,13 +48,13 @@
             <Font name="Cambria" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="106.0" layoutY="34.0" mnemonicParsing="false" onAction="#updateControl" text="Button" />
+      <Button layoutX="106.0" layoutY="34.0" mnemonicParsing="false" onAction="#getLocationHandRight" text="Button" />
       <Label fx:id="lbTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="527.0" layoutY="46.0" text="Medidor de Tiempo" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="125.0">
          <font>
             <Font name="Cambria" size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgHandRight" fitHeight="124.0" fitWidth="96.0" layoutX="567.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHandRight" fitHeight="124.0" fitWidth="96.0" layoutX="567.0" layoutY="164.0" onMousePressed="#getLocationHandRight" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Level1_Extremidad_Derecha.png" />
          </image>
@@ -66,7 +66,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fx:id="imgHead" fitHeight="183.0" fitWidth="170.0" layoutX="74.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHead" fitHeight="193.0" fitWidth="178.0" layoutX="98.0" layoutY="274.0" onMouseReleased="#prueba" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Level_Head.png" />
          </image>
@@ -78,5 +78,54 @@
             </DropShadow>
          </effect>
       </ImageView>
+      <ImageView fx:id="imgHandLeft" fitHeight="124.0" fitWidth="96.0" layoutX="69.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Level1_Extremidad_Izquierda.png" />
+         </image>
+         <effect>
+            <DropShadow height="38.1" radius="14.275" spread="0.48">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <ImageView fx:id="imgFooterRight" fitHeight="145.0" fitWidth="76.0" layoutX="525.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Level1_Extremidad_Inf_Derecha.png" />
+         </image>
+         <effect>
+            <DropShadow height="38.1" radius="14.275" spread="0.48">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <ImageView fx:id="imgFooterLeft" fitHeight="145.0" fitWidth="76.0" layoutX="158.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Level1_Extremidad_Inf_Izquierda.png" />
+         </image>
+         <effect>
+            <DropShadow height="38.1" radius="14.275" spread="0.48">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <ImageView fx:id="imgTrunk" fitHeight="145.0" fitWidth="76.0" layoutX="641.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/trunk.png" />
+         </image>
+         <effect>
+            <DropShadow height="38.1" radius="14.275" spread="0.48">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <Region layoutX="287.0" layoutY="131.0" prefHeight="457.0" prefWidth="223.0" />
    </children>
 </AnchorPane>
