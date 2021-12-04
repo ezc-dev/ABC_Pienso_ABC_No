@@ -69,9 +69,14 @@ public class GameObject {
 		this.range = range;
 	}
 	
-	public void resetObject() {
-		object.setLayoutX(initialPositionX);
-		object.setLayoutY(initialPositionY);
+	public void resetObject(Node node) {
+		node.setLayoutX(initialPositionX);
+		node.setLayoutY(initialPositionY);
+	}
+	
+	public void adjustObject(Node node) {
+		node.setLayoutX(correctPositionX);
+		node.setLayoutY(correctPositionY);
 	}
 	
 }

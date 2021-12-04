@@ -48,13 +48,13 @@
             <Font name="Cambria" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="106.0" layoutY="34.0" mnemonicParsing="false" onAction="#getLocationHandRight" text="Button" />
+      <Button layoutX="106.0" layoutY="34.0" mnemonicParsing="false" text="Button" />
       <Label fx:id="lbTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="527.0" layoutY="46.0" text="Medidor de Tiempo" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="125.0">
          <font>
             <Font name="Cambria" size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgHandRight" fitHeight="124.0" fitWidth="96.0" layoutX="567.0" layoutY="164.0" onMousePressed="#getLocationHandRight" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHandRight" fitHeight="124.0" fitWidth="96.0" layoutX="567.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Level1_Extremidad_Derecha.png" />
          </image>
@@ -66,7 +66,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fx:id="imgHead" fitHeight="193.0" fitWidth="178.0" layoutX="98.0" layoutY="274.0" onMouseReleased="#prueba" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgHead" fitHeight="193.0" fitWidth="178.0" layoutX="98.0" layoutY="274.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Level_Head.png" />
          </image>
@@ -126,6 +126,5 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <Region layoutX="287.0" layoutY="131.0" prefHeight="457.0" prefWidth="223.0" />
    </children>
 </AnchorPane>
