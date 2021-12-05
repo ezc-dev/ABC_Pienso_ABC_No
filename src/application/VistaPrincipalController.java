@@ -79,7 +79,19 @@ public class VistaPrincipalController {
 		}
 	}
 	
-	
+	public void loadLevel3Scene() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("Level3.fxml"));
+			AnchorPane pane = (AnchorPane) loader.load();
+			borderPane.setCenter(pane);
+			mainStage.setTitle("ABC Pienso! ABC No! - Nivel 3");
+			Level3Controller level3Controller = loader.getController();
+			level3Controller.setVistaPrincipalController(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public void mostrarControl(String id) {
 		borderPane.lookup(id).setVisible(true);

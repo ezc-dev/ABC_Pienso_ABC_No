@@ -19,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class Level2Controller implements Initializable{
+public class Level3Controller implements Initializable{
 
 	VistaPrincipalController vistaPrincipalController;
 	
@@ -33,13 +33,15 @@ public class Level2Controller implements Initializable{
 	@FXML private Label lbReason;
 	@FXML private Button btnHome;
 	@FXML private HBox lifes;
-	@FXML private ImageView imgNoseMouth;
-	@FXML private ImageView imgLungs;
-	@FXML private ImageView imgTracheaLarinx;
+	@FXML private ImageView imgMouth;
+	@FXML private ImageView imgThroat;
+	@FXML private ImageView imgLiver;
+	@FXML private ImageView imgLargeIntestine;
+	@FXML private ImageView imgSmallIntestine;
 	
 	
 	
-	Nivel level1 = new Nivel(3, "Nivel 2: El Sistema Respitatorio", 311, 511, 264, 534);
+	Nivel level1 = new Nivel(5, "Nivel 2: El Sistema Digestivo", 311, 511, 264, 534);
 	
 	
 	
@@ -62,21 +64,27 @@ public class Level2Controller implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		draggableMaker.makeDraggable(imgNoseMouth);
-		draggableMaker.makeDraggable(imgLungs);
-		draggableMaker.makeDraggable(imgTracheaLarinx);
+		draggableMaker.makeDraggable(imgMouth);
+		draggableMaker.makeDraggable(imgThroat);
+		draggableMaker.makeDraggable(imgLiver);
+		draggableMaker.makeDraggable(imgLargeIntestine);
+		draggableMaker.makeDraggable(imgSmallIntestine);
 		loadLevel();
 		createObjects();
 	}
 	
-	GameObject noseMouth = new GameObject(imgNoseMouth, 149, 289, 369, 280, 5);
-	GameObject lungs = new GameObject(imgLungs, 104, 464, 362, 425, 5);
-	GameObject tracheaLarinx = new GameObject(imgTracheaLarinx, 638, 300, 376, 287, 5);
+	GameObject mouth = new GameObject(imgMouth, 118, 279, 366, 297, 5);
+	GameObject throat = new GameObject(imgThroat, 704, 321, 375, 331, 5);
+	GameObject liver = new GameObject(imgLiver, 173, 457, 358, 461, 5);
+	GameObject largeIntestine = new GameObject(imgLargeIntestine, 626, 152, 352, 496, 5);
+	GameObject smallIntestine = new GameObject(imgSmallIntestine, 47, 179, 357, 506, 5);
 	
 	void createObjects() {
-		objects.put("imgNoseMouth", noseMouth);
-		objects.put("imgLungs", lungs);
-		objects.put("imgTracheaLarinx", tracheaLarinx);
+		objects.put("imgMouth", mouth);
+		objects.put("imgThroat", throat);
+		objects.put("imgLiver", liver);
+		objects.put("imgLargeIntestine", largeIntestine);
+		objects.put("imgSmallIntestine", smallIntestine);
 	}
 	
 	void loadLevel() {
@@ -89,11 +97,6 @@ public class Level2Controller implements Initializable{
 	@FXML
 	void goHome(ActionEvent event) {
 		vistaPrincipalController.loadHomeScene();
-	}
-	
-	@FXML
-	void goNextLevel(ActionEvent event) {
-		vistaPrincipalController.loadLevel3Scene();
 	}
 	
 
