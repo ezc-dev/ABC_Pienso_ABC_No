@@ -19,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class Level1Controller implements Initializable{
+public class Level2Controller implements Initializable{
 
 	VistaPrincipalController vistaPrincipalController;
 	
@@ -33,16 +33,13 @@ public class Level1Controller implements Initializable{
 	@FXML private Label lbReason;
 	@FXML private Button btnHome;
 	@FXML private HBox lifes;
-	@FXML private ImageView imgHead;
-	@FXML private ImageView imgHandRight;
-	@FXML private ImageView imgHandLeft;
-	@FXML private ImageView imgFooterLeft;
-	@FXML private ImageView imgFooterRight;
-	@FXML private ImageView imgTrunk;
+	@FXML private ImageView imgNoseMouth;
+	@FXML private ImageView imgLungs;
+	@FXML private ImageView imgTracheaLarinx;
 	
 	
 	
-	Nivel level1 = new Nivel(6, "Nivel 1: Las Partes del Cuerpo", 287, 510, 131, 588);
+	Nivel level1 = new Nivel(3, "Nivel 2: El Sistema Respitatorio", 311, 511, 264, 534);
 	
 	
 	
@@ -65,30 +62,21 @@ public class Level1Controller implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		draggableMaker.makeDraggable(imgHead);
-		draggableMaker.makeDraggable(imgHandRight);
-		draggableMaker.makeDraggable(imgHandLeft);
-		draggableMaker.makeDraggable(imgTrunk);
-		draggableMaker.makeDraggable(imgFooterRight);
-		draggableMaker.makeDraggable(imgFooterLeft);
+		draggableMaker.makeDraggable(imgNoseMouth);
+		draggableMaker.makeDraggable(imgLungs);
+		draggableMaker.makeDraggable(imgTracheaLarinx);
 		loadLevel();
 		createObjects();
 	}
 	
-	GameObject head = new GameObject(imgHead, 98, 274, 309, 135, 5);
-	GameObject handRight = new GameObject(imgHandRight, 567, 164, 284, 335, 5);
-	GameObject handLeft = new GameObject(imgHandLeft, 69, 443, 415, 335, 5);
-	GameObject trunk = new GameObject(imgTrunk, 641, 331, 365, 319, 5);
-	GameObject footerRight = new GameObject(imgFooterRight, 525, 423, 321, 442, 5);
-	GameObject footerLeft = new GameObject(imgFooterLeft, 158, 99, 399, 443, 5);
+	GameObject noseMouth = new GameObject(imgNoseMouth, 149, 289, 369, 280, 5);
+	GameObject lungs = new GameObject(imgLungs, 104, 464, 362, 425, 5);
+	GameObject tracheaLarinx = new GameObject(imgTracheaLarinx, 638, 300, 376, 287, 5);
 	
 	void createObjects() {
-		objects.put("imgHead", head);
-		objects.put("imgHandRight", handRight);
-		objects.put("imgHandLeft", handLeft);
-		objects.put("imgTrunk", trunk);
-		objects.put("imgFooterRight", footerRight);
-		objects.put("imgFooterLeft", footerLeft);
+		objects.put("imgNoseMouth", noseMouth);
+		objects.put("imgLungs", lungs);
+		objects.put("imgTracheaLarinx", tracheaLarinx);
 	}
 	
 	void loadLevel() {
@@ -103,10 +91,6 @@ public class Level1Controller implements Initializable{
 		vistaPrincipalController.loadHomeScene();
 	}
 	
-	@FXML
-	void goNextLevel(ActionEvent event) {
-		vistaPrincipalController.loadLevel2Scene();
-	}
 
 	int timeS = 180;
 	

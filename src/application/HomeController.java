@@ -30,7 +30,7 @@ public class HomeController implements Initializable{
 
 	@FXML
 	void goSceneLevel1() {
-		vistaPrincipalController.crearJugador("010", 3);
+		vistaPrincipalController.crearJugador(0, 3);
 		vistaPrincipalController.loadLevel1Scene();
 		
 	}

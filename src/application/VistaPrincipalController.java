@@ -65,6 +65,20 @@ public class VistaPrincipalController {
 		}
 	}
 	
+	public void loadLevel2Scene() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("Level2.fxml"));
+			AnchorPane pane = (AnchorPane) loader.load();
+			borderPane.setCenter(pane);
+			mainStage.setTitle("ABC Pienso! ABC No! - Nivel 2");
+			Level2Controller level2Controller = loader.getController();
+			level2Controller.setVistaPrincipalController(this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 	public void mostrarControl(String id) {
@@ -75,7 +89,7 @@ public class VistaPrincipalController {
 		borderPane.lookup(id).setVisible(false);
 	}
 	
-	public void crearJugador(String points, int vidas) {
+	public void crearJugador(int points, int vidas) {
 		jugador = new Jugador(points, vidas);
 	}
 }

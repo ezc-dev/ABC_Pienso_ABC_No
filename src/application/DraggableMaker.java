@@ -19,17 +19,8 @@ public class DraggableMaker {
 		});
 	}
 	
-	public double[] getPosition(Node node) {
-		
-		double[] list = new double[2];
-		
-		node.setOnMouseReleased(mouseEvent -> {
-			list[0] = node.getLayoutX();
-			list[1] = node.getLayoutY();
-		});
-		
-		System.out.println("Hola");
-		return list;
+	public void unMakeDraggable(Node node) {
+		node.setOnMouseDragged(null);
 	}
 
 }

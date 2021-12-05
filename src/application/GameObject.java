@@ -5,13 +5,13 @@ import javafx.scene.Node;
 public class GameObject {
 
 	private Node object;
-	private int initialPositionX;
-	private int initialPositionY;
+	private double initialPositionX;
+	private double initialPositionY;
 	private int correctPositionX;
 	private int correctPositionY;
 	private int range;
 	
-	public GameObject(Node object, int initialPositionX, int initialPositionY, int correctPositionX,
+	public GameObject(Node object, double initialPositionX, double initialPositionY, int correctPositionX,
 			int correctPositionY, int range) {
 		this.object = object;
 		this.initialPositionX = initialPositionX;
@@ -29,19 +29,19 @@ public class GameObject {
 		this.object = object;
 	}
 
-	public int getInitialPositionX() {
+	public double getInitialPositionX() {
 		return initialPositionX;
 	}
 
-	public void setInitialPositionX(int initialPositionX) {
+	public void setInitialPositionX(double initialPositionX) {
 		this.initialPositionX = initialPositionX;
 	}
 
-	public int getInitialPositionY() {
+	public double getInitialPositionY() {
 		return initialPositionY;
 	}
 
-	public void setInitialPositionY(int initialPositionY) {
+	public void setInitialPositionY(double initialPositionY) {
 		this.initialPositionY = initialPositionY;
 	}
 

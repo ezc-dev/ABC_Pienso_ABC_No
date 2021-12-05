@@ -2,22 +2,22 @@ package application;
 
 public class Jugador {
 	
-	private String points;
+	private int points;
 	private int vidas;
 	
 	
-	public Jugador(String points, int vidas) {
+	public Jugador(int points, int vidas) {
 		this.points = points;
 		this.vidas = vidas;
 	}
 
 
-	public String getPoints() {
+	public int getPoints() {
 		return points;
 	}
 
 
-	public void setPoints(String points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 
