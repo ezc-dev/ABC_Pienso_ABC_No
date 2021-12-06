@@ -41,7 +41,7 @@ public class Level3Controller implements Initializable{
 	
 	
 	
-	Nivel level1 = new Nivel(5, "Nivel 2: El Sistema Digestivo", 311, 511, 264, 534);
+	Nivel level1 = new Nivel(5, "Nivel 3: El Sistema Digestivo", 311, 511, 264, 534);
 	
 	
 	
@@ -99,7 +99,11 @@ public class Level3Controller implements Initializable{
 		vistaPrincipalController.loadHomeScene();
 	}
 	
-
+	@FXML
+	void goNextLevel(ActionEvent event) {
+		vistaPrincipalController.loadLevel4Scene();
+	}
+	
 	int timeS = 180;
 	
 	void inicializeTime() {

@@ -16,13 +16,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="view" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level3Controller">
+<AnchorPane fx:id="view" maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level4Controller">
    <children>
       <Group fx:id="groupMain">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/Level3_Back.png" />
+                  <Image url="@../images/Level4_Back.png" />
                </image>
             </ImageView>
             <Region prefHeight="91.0" prefWidth="800.0" style="-fx-background-color: RGBA(0,0,0,0.8);" />
@@ -61,66 +61,6 @@
                   <Font name="Cambria" size="22.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgThroat" fitHeight="180.0" fitWidth="66.0" layoutX="704.0" layoutY="321.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Level3_Throat_Oesophagus_and_Stomach.png" />
-               </image>
-               <effect>
-                  <DropShadow height="38.1" radius="14.275" spread="0.48">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
-            <ImageView fx:id="imgSmallIntestine" fitHeight="63.0" fitWidth="83.0" layoutX="47.0" layoutY="179.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Level3_Small_Intestine.png" />
-               </image>
-               <effect>
-                  <DropShadow height="38.1" radius="14.275" spread="0.48">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
-            <ImageView fx:id="imgLargeIntestine" fitHeight="81.0" fitWidth="97.0" layoutX="626.0" layoutY="152.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Level3_Large_Intestine.png" />
-               </image>
-               <effect>
-                  <DropShadow height="38.1" radius="14.275" spread="0.48">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
-            <ImageView fx:id="imgLiver" fitHeight="50.0" fitWidth="53.0" layoutX="173.0" layoutY="457.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Level3_Liver.png" />
-               </image>
-               <effect>
-                  <DropShadow height="38.1" radius="14.275" spread="0.48">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
-            <ImageView fx:id="imgMouth" fitHeight="47.0" fitWidth="70.0" layoutX="118.0" layoutY="279.0" onMouseReleased="#validatePosition" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Level3_Mouth.png" />
-               </image>
-               <effect>
-                  <DropShadow height="38.1" radius="14.275" spread="0.48">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
             <HBox fx:id="lifes" layoutX="130.0" layoutY="26.0" prefHeight="27.0" prefWidth="148.0" style="-fx-spacing: 10px;">
                <children>
                   <ImageView id="l1" fitHeight="46.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
@@ -143,6 +83,86 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
+            <Label fx:id="lbScapula" alignment="CENTER" layoutX="18.0" layoutY="260.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Escápula">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbRadio" alignment="CENTER" layoutX="18.0" layoutY="214.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Radio">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbUlna" alignment="CENTER" layoutX="18.0" layoutY="398.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Cúbito">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbFemur" alignment="CENTER" layoutX="18.0" layoutY="488.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Fémur">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbTibia" alignment="CENTER" layoutX="18.0" layoutY="536.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Tibia">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbFibula" alignment="CENTER" layoutX="17.0" layoutY="352.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Peroné">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbPelvis" alignment="CENTER" layoutX="17.0" layoutY="306.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Pelvis">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbHumereus" alignment="CENTER" layoutX="17.0" layoutY="168.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Humero">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbMaxillary" alignment="CENTER" layoutX="18.0" layoutY="444.0" onMouseReleased="#validatePosition" prefHeight="36.0" prefWidth="143.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Maxilar Inferior">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="lbSkull" alignment="CENTER" layoutX="16.0" layoutY="119.0" onMouseReleased="#validatePosition" prefHeight="39.0" prefWidth="146.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #d427e6; -fx-border-radius: 10; -fx-border-width: 1.5;" text="Cráneo">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
          </children>
       </Group>
       <Group fx:id="gameResult" layoutX="165.0" layoutY="214.0" visible="false">
@@ -241,7 +261,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Button layoutX="172.0" layoutY="115.0" mnemonicParsing="false" onAction="#goNextLevel" text="Siguiente Nivel" />
+            <Button layoutX="172.0" layoutY="115.0" mnemonicParsing="false" onAction="#goHome" text="Siguiente Nivel" />
          </children>
       </Group>
    </children>

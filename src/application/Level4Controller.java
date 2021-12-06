@@ -14,12 +14,11 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.SepiaTone;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class Level1Controller implements Initializable{
+public class Level4Controller implements Initializable{
 
 	VistaPrincipalController vistaPrincipalController;
 	
@@ -33,16 +32,20 @@ public class Level1Controller implements Initializable{
 	@FXML private Label lbReason;
 	@FXML private Button btnHome;
 	@FXML private HBox lifes;
-	@FXML private ImageView imgHead;
-	@FXML private ImageView imgHandRight;
-	@FXML private ImageView imgHandLeft;
-	@FXML private ImageView imgFooterLeft;
-	@FXML private ImageView imgFooterRight;
-	@FXML private ImageView imgTrunk;
+	@FXML private Label lbScapula;
+	@FXML private Label lbRadio;
+	@FXML private Label lbUlna;
+	@FXML private Label lbFemur;
+	@FXML private Label lbSkull;
+	@FXML private Label lbMaxillary;
+	@FXML private Label lbHumereus;
+	@FXML private Label lbPelvis;
+	@FXML private Label lbFibula;
+	@FXML private Label lbTibia;
 	
 	
 	
-	Nivel level1 = new Nivel(6, "Nivel 1: Las Partes del Cuerpo", 287, 510, 131, 588);
+	Nivel level1 = new Nivel(10, "Nivel 4: El Sistema Oseo", 187, 798, 136, 576);
 	
 	
 	
@@ -65,30 +68,42 @@ public class Level1Controller implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		draggableMaker.makeDraggable(imgHead);
-		draggableMaker.makeDraggable(imgHandRight);
-		draggableMaker.makeDraggable(imgHandLeft);
-		draggableMaker.makeDraggable(imgTrunk);
-		draggableMaker.makeDraggable(imgFooterRight);
-		draggableMaker.makeDraggable(imgFooterLeft);
+		draggableMaker.makeDraggable(lbScapula);
+		draggableMaker.makeDraggable(lbRadio);
+		draggableMaker.makeDraggable(lbUlna);
+		draggableMaker.makeDraggable(lbFemur);
+		draggableMaker.makeDraggable(lbSkull);
+		draggableMaker.makeDraggable(lbMaxillary);
+		draggableMaker.makeDraggable(lbHumereus);
+		draggableMaker.makeDraggable(lbPelvis);
+		draggableMaker.makeDraggable(lbFibula);
+		draggableMaker.makeDraggable(lbTibia);
 		loadLevel();
 		createObjects();
 	}
 	
-	GameObject head = new GameObject(imgHead, 98, 274, 309, 135, 5);
-	GameObject handRight = new GameObject(imgHandRight, 567, 164, 284, 335, 5);
-	GameObject handLeft = new GameObject(imgHandLeft, 69, 443, 415, 335, 5);
-	GameObject trunk = new GameObject(imgTrunk, 641, 331, 365, 319, 5);
-	GameObject footerRight = new GameObject(imgFooterRight, 525, 423, 321, 442, 5);
-	GameObject footerLeft = new GameObject(imgFooterLeft, 158, 99, 399, 443, 5);
+	GameObject scapula = new GameObject(lbScapula, 18, 260, 220, 236,  10);
+	GameObject radio = new GameObject(lbRadio, 18, 214, 217, 288, 10);
+	GameObject ulna = new GameObject(lbUlna, 18, 358, 219, 338, 10);
+	GameObject femur = new GameObject(lbFemur, 18, 488, 203, 452, 10);
+	GameObject skull = new GameObject(lbSkull, 18, 119, 625, 149, 10);
+	GameObject maxillary = new GameObject(lbMaxillary, 18, 444, 628, 249, 10);
+	GameObject humereus = new GameObject(lbHumereus, 18, 168, 632, 217, 10);
+	GameObject pelvis = new GameObject(lbPelvis, 18, 306, 641, 395, 10);
+	GameObject fibula = new GameObject(lbFibula, 18, 352, 638, 456, 10);
+	GameObject tibia = new GameObject(lbTibia, 18, 536, 634, 527, 10);
 	
 	void createObjects() {
-		objects.put("imgHead", head);
-		objects.put("imgHandRight", handRight);
-		objects.put("imgHandLeft", handLeft);
-		objects.put("imgTrunk", trunk);
-		objects.put("imgFooterRight", footerRight);
-		objects.put("imgFooterLeft", footerLeft);
+		objects.put("lbMaxillary", maxillary);
+		objects.put("lbRadio", radio);
+		objects.put("lbUlna", ulna);
+		objects.put("lbFemur", femur);
+		objects.put("lbSkull", skull);
+		objects.put("lbMaxillary", maxillary);
+		objects.put("lbHumereus", humereus);
+		objects.put("lbPelvis", pelvis);
+		objects.put("lbFibula", fibula);
+		objects.put("lbTibia", tibia);
 	}
 	
 	void loadLevel() {
@@ -103,10 +118,6 @@ public class Level1Controller implements Initializable{
 		vistaPrincipalController.loadHomeScene();
 	}
 	
-	@FXML
-	void goNextLevel(ActionEvent event) {
-		vistaPrincipalController.loadLevel2Scene();
-	}
 
 	int timeS = 180;
 	
@@ -160,17 +171,17 @@ public class Level1Controller implements Initializable{
 	
 	@FXML
 	void validatePosition(MouseEvent e) {
-		ImageView image = (ImageView) e.getSource();
-		GameObject pru = objects.get(image.getId());
-		if(image.getLayoutX() >= level1.getMinX() && image.getLayoutX() <= level1.getMaxX() &&
-				image.getLayoutY() >= level1.getMinY() && image.getLayoutY() <= level1.getMaxY()) {
-			if(image.getLayoutX() >= pru.getCorrectPositionX() - pru.getRange() &&
-					image.getLayoutX() <= pru.getCorrectPositionX() + pru.getRange() &&
-					image.getLayoutY() >= pru.getCorrectPositionY() - pru.getRange() &&
-					image.getLayoutY() <= pru.getCorrectPositionY() + pru.getRange()) {
-				pru.adjustObject(image);
-				image.setEffect(null);
-				draggableMaker.unMakeDraggable(image);
+		Label lb = (Label) e.getSource();
+		GameObject pru = objects.get(lb.getId());
+		if(lb.getLayoutX() >= level1.getMinX() && lb.getLayoutX() <= level1.getMaxX() &&
+				lb.getLayoutY() >= level1.getMinY() && lb.getLayoutY() <= level1.getMaxY()) {
+			if(lb.getLayoutX() >= pru.getCorrectPositionX() - pru.getRange() &&
+					lb.getLayoutX() <= pru.getCorrectPositionX() + pru.getRange() &&
+					lb.getLayoutY() >= pru.getCorrectPositionY() - pru.getRange() &&
+					lb.getLayoutY() <= pru.getCorrectPositionY() + pru.getRange()) {
+				pru.adjustObject(lb);
+				lb.setEffect(null);
+				draggableMaker.unMakeDraggable(lb);
 				progress += 1;
 				if(progress == level1.getNumber()) {
 					time.cancel();
@@ -191,12 +202,12 @@ public class Level1Controller implements Initializable{
 					lbReason.setText("Te quedaste sin vidas");
 					gameResult.setVisible(true);
 				} else {
-					pru.resetObject(image);
+					pru.resetObject(lb);
 				}
 			}
 				
 		} else {		
-			pru.resetObject(image);
+			pru.resetObject(lb);
 		}
 	}
 	
