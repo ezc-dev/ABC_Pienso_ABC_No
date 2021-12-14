@@ -89,7 +89,7 @@ public class Level3Controller implements Initializable{
 	
 	void loadLevel() {
 		lbTitleLevel.setText(level1.getTitle());
-		lbPoints.setText(String.format("%03d", VistaPrincipalController.jugador.getPoints()));
+		lbPoints.setText(String.format("%04d", VistaPrincipalController.jugador.getPoints()));
 		inicializeTime();
 		progress= 0;
 	}
@@ -97,10 +97,13 @@ public class Level3Controller implements Initializable{
 	@FXML
 	void goHome(ActionEvent event) {
 		vistaPrincipalController.loadHomeScene();
+		VistaPrincipalController.bgSound.stopSound();
+		VistaPrincipalController.bgSound.loadSound();
 	}
 	
 	@FXML
 	void goNextLevel(ActionEvent event) {
+		VistaPrincipalController.jugador.setVidas(3);
 		vistaPrincipalController.loadLevel4Scene();
 	}
 	
@@ -122,6 +125,7 @@ public class Level3Controller implements Initializable{
 						groupMain.setDisable(true);
 						lbReason.setText("Te quedaste sin tiempo");
 						gameResult.setVisible(true);
+						soundLosse();
 					}
 				});
 			}
@@ -140,7 +144,7 @@ public class Level3Controller implements Initializable{
 	void updatePoints(int points) {
 		int beforePoints = VistaPrincipalController.jugador.getPoints();
 		VistaPrincipalController.jugador.setPoints(beforePoints + points);
-		lbPoints.setText(String.format("%03d", VistaPrincipalController.jugador.getPoints()));
+		lbPoints.setText(String.format("%04d", VistaPrincipalController.jugador.getPoints()));
 	}
 	
 	int makePoints() {
@@ -175,17 +179,20 @@ public class Level3Controller implements Initializable{
 					groupMain.setEffect(sepiaTone);
 					groupMain.setDisable(true);
 					levelWin.setVisible(true);
+					soundWin();
 				}
 			} else {
 				int lifesActive = VistaPrincipalController.jugador.getVidas();
 				lifes.getChildren().remove(lifesActive - 1);
 				VistaPrincipalController.jugador.setVidas(lifesActive - 1);
 				if(lifesActive - 1 == 0) {
+					time.cancel();
 					sepiaTone.setLevel(0.7);
 					groupMain.setEffect(sepiaTone);
 					groupMain.setDisable(true);
 					lbReason.setText("Te quedaste sin vidas");
 					gameResult.setVisible(true);
+					soundLosse();
 				} else {
 					pru.resetObject(image);
 				}
@@ -196,6 +203,15 @@ public class Level3Controller implements Initializable{
 		}
 	}
 	
+	public void soundLosse() {
+		VistaPrincipalController.bgSound.stopSound();
+		Sounds losseSound = new Sounds("src/sounds/losse.wav", 0);
+		losseSound.loadSound();
+	}
 	
+	public void soundWin() {
+		Sounds winSound = new Sounds("src/sounds/levelWin.wav", 0);
+		winSound.loadSound();
+	}
 
 }

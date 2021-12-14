@@ -36,6 +36,13 @@ public class HomeController implements Initializable{
 	}
 	
 	@FXML
+	void muteBgSound() {
+		VistaPrincipalController.bgSound.stopSound();
+		Sounds losseSound = new Sounds("src/sounds/losse.wav", 0);
+		losseSound.loadSound();
+	}
+	
+	@FXML
 	void showHelp(ActionEvent event) {
 		vistaPrincipalController.mostrarControl("#groupHelp");
 	}

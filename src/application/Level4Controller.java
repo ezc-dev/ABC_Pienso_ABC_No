@@ -45,7 +45,7 @@ public class Level4Controller implements Initializable{
 	
 	
 	
-	Nivel level1 = new Nivel(10, "Nivel 4: El Sistema Oseo", 187, 798, 136, 576);
+	Nivel level4 = new Nivel(10, "Nivel 4: El Sistema Oseo", 187, 800, 136, 576);
 	
 	
 	
@@ -84,17 +84,17 @@ public class Level4Controller implements Initializable{
 	
 	GameObject scapula = new GameObject(lbScapula, 18, 260, 220, 236,  10);
 	GameObject radio = new GameObject(lbRadio, 18, 214, 217, 288, 10);
-	GameObject ulna = new GameObject(lbUlna, 18, 358, 219, 338, 10);
+	GameObject ulna = new GameObject(lbUlna, 18, 398, 219, 338, 10);
 	GameObject femur = new GameObject(lbFemur, 18, 488, 203, 452, 10);
 	GameObject skull = new GameObject(lbSkull, 18, 119, 625, 149, 10);
 	GameObject maxillary = new GameObject(lbMaxillary, 18, 444, 628, 249, 10);
-	GameObject humereus = new GameObject(lbHumereus, 18, 168, 632, 217, 10);
+	GameObject humereus = new GameObject(lbHumereus, 18, 168, 632, 316, 10);
 	GameObject pelvis = new GameObject(lbPelvis, 18, 306, 641, 395, 10);
 	GameObject fibula = new GameObject(lbFibula, 18, 352, 638, 456, 10);
 	GameObject tibia = new GameObject(lbTibia, 18, 536, 634, 527, 10);
 	
 	void createObjects() {
-		objects.put("lbMaxillary", maxillary);
+		objects.put("lbScapula", scapula);
 		objects.put("lbRadio", radio);
 		objects.put("lbUlna", ulna);
 		objects.put("lbFemur", femur);
@@ -107,8 +107,8 @@ public class Level4Controller implements Initializable{
 	}
 	
 	void loadLevel() {
-		lbTitleLevel.setText(level1.getTitle());
-		lbPoints.setText(String.format("%03d", VistaPrincipalController.jugador.getPoints()));
+		lbTitleLevel.setText(level4.getTitle());
+		lbPoints.setText(String.format("%04d", VistaPrincipalController.jugador.getPoints()));
 		inicializeTime();
 		progress= 0;
 	}
@@ -116,6 +116,8 @@ public class Level4Controller implements Initializable{
 	@FXML
 	void goHome(ActionEvent event) {
 		vistaPrincipalController.loadHomeScene();
+		VistaPrincipalController.bgSound.stopSound();
+		VistaPrincipalController.bgSound.loadSound();
 	}
 	
 
@@ -137,6 +139,7 @@ public class Level4Controller implements Initializable{
 						groupMain.setDisable(true);
 						lbReason.setText("Te quedaste sin tiempo");
 						gameResult.setVisible(true);
+						soundLosse();
 					}
 				});
 			}
@@ -155,7 +158,7 @@ public class Level4Controller implements Initializable{
 	void updatePoints(int points) {
 		int beforePoints = VistaPrincipalController.jugador.getPoints();
 		VistaPrincipalController.jugador.setPoints(beforePoints + points);
-		lbPoints.setText(String.format("%03d", VistaPrincipalController.jugador.getPoints()));
+		lbPoints.setText(String.format("%04d", VistaPrincipalController.jugador.getPoints()));
 	}
 	
 	int makePoints() {
@@ -173,8 +176,8 @@ public class Level4Controller implements Initializable{
 	void validatePosition(MouseEvent e) {
 		Label lb = (Label) e.getSource();
 		GameObject pru = objects.get(lb.getId());
-		if(lb.getLayoutX() >= level1.getMinX() && lb.getLayoutX() <= level1.getMaxX() &&
-				lb.getLayoutY() >= level1.getMinY() && lb.getLayoutY() <= level1.getMaxY()) {
+		if(lb.getLayoutX() >= level4.getMinX() && lb.getLayoutX() <= level4.getMaxX() &&
+				lb.getLayoutY() >= level4.getMinY() && lb.getLayoutY() <= level4.getMaxY()) {
 			if(lb.getLayoutX() >= pru.getCorrectPositionX() - pru.getRange() &&
 					lb.getLayoutX() <= pru.getCorrectPositionX() + pru.getRange() &&
 					lb.getLayoutY() >= pru.getCorrectPositionY() - pru.getRange() &&
@@ -183,13 +186,14 @@ public class Level4Controller implements Initializable{
 				lb.setEffect(null);
 				draggableMaker.unMakeDraggable(lb);
 				progress += 1;
-				if(progress == level1.getNumber()) {
+				if(progress == level4.getNumber()) {
 					time.cancel();
 					updatePoints(makePoints());
 					sepiaTone.setLevel(0.7);
 					groupMain.setEffect(sepiaTone);
 					groupMain.setDisable(true);
 					levelWin.setVisible(true);
+					soundWin();
 				}
 			} else {
 				int lifesActive = VistaPrincipalController.jugador.getVidas();
@@ -201,6 +205,7 @@ public class Level4Controller implements Initializable{
 					groupMain.setDisable(true);
 					lbReason.setText("Te quedaste sin vidas");
 					gameResult.setVisible(true);
+					soundLosse();
 				} else {
 					pru.resetObject(lb);
 				}
@@ -211,6 +216,15 @@ public class Level4Controller implements Initializable{
 		}
 	}
 	
+	public void soundLosse() {
+		VistaPrincipalController.bgSound.stopSound();
+		Sounds losseSound = new Sounds("src/sounds/losse.wav", 0);
+		losseSound.loadSound();
+	}
 	
+	public void soundWin() {
+		Sounds winSound = new Sounds("src/sounds/levelWin.wav", 0);
+		winSound.loadSound();
+	}
 
 }

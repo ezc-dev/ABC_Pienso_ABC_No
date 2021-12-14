@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -12,6 +11,7 @@ public class VistaPrincipalController {
 	private Stage mainStage;
 	private BorderPane borderPane;
 	public static Jugador jugador;
+	public static Sounds bgSound;
 	
 	public VistaPrincipalController(Stage stage) {
 		this.mainStage = stage;
@@ -30,6 +30,8 @@ public class VistaPrincipalController {
 			mainStage.show();
 			//MainController c;
 			//c = loader.getController();
+			bgSound = new Sounds("src/sounds/Friends.wav", 3);
+			bgSound.loadSound();
 			loadHomeScene();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,6 +39,8 @@ public class VistaPrincipalController {
 		
 				
 	}
+	
+	
 	
 	public void loadHomeScene() {
 		try {
