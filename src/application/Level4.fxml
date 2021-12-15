@@ -261,7 +261,7 @@
                   </DropShadow>
                </effect>
             </Label>
-            <Button layoutX="172.0" layoutY="115.0" mnemonicParsing="false" onAction="#goHome" text="Siguiente Nivel" />
+            <Button layoutX="172.0" layoutY="115.0" mnemonicParsing="false" onAction="#goHome" text="Jugar de Nuevo!" />
          </children>
       </Group>
    </children>

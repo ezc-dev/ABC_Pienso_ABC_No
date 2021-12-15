@@ -30,7 +30,7 @@ public class VistaPrincipalController {
 			mainStage.show();
 			//MainController c;
 			//c = loader.getController();
-			bgSound = new Sounds("src/sounds/Friends.wav", 3);
+			bgSound = new Sounds("src/sounds/Friends.wav", 10);
 			bgSound.loadSound();
 			loadHomeScene();
 		} catch (IOException e) {
